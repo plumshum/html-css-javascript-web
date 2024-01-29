@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Objects </title>
+    </head>
+    <body>
+        <script>
+            /*
+            const product = {
+                name: 'sock',
+                price: 1090
+            };
+            console.log(typeof product);
+            console.log(product.name);
+            console.log(product.price); //dot notation? if nothing, then undefined
+
+            product.name = 'cotton socks';
+            console.log(product);
+
+            product.newProperty = true;
+            console.log(product.newProperty);
+
+            delete product.newProperty;
+            console.log(product.newProperty);  
+
+            const product2 = {
+                name: 'shirt',
+                'delivery-time': '1 day',
+                rating: {
+                    stars: 4.5,
+                    color: 'blue',
+                    count: 87
+                },
+                fun: function function1(){
+                    console.log('function inside object');
+                }
+            };
+            console.log(product2['name']);
+            console.log(product2['delivery-time'])//bracket notation
+            //dot notation by default, for properites that don't work, use 
+            //bracket notation 
+            console.log(product2.rating.count);
+            product2.fun();
+
+            
+            json: javascript object notation 
+            - must use double quotes
+            - doesn't support functions
+            - similar to JS object but with less features 
+            - json is more universal 
+            - use json when we send data between computers 
+            - use json to store data 
+            {
+                "name": "shirt",
+                "delivery-time": "1 day",
+                "rating": {
+                    "stars": 4.5,
+                    "color": "blue",
+                    "count": 87
+                }
+            }
+        
+           console.log(JSON.stringify(product2)); //doesn't show functions
+           console.log(JSON.parse(JSON.stringify(product2))); //converts back to object
+
+           //null intentionallly want something to be empty
+           */
+
+           console.log('hello'.length); //autoboxing, wraps string into a speical object. done automaticlly 
+           console.log('hello'.toUpperCase());
+
+           const object1 = {
+                message: 'hello'
+           };
+           //value is created in the computer's memory, the variable just gets its reference 
+           const object2 = object1; //copying the reference. so point to the same object in the same memory
+
+           object1.messasge = 'Good job!';
+           console.log(object1);
+           console.log(object2); //message also changed!
+           
+           const object3 = {
+                messasge: 'Good job!'
+           };
+
+           console.log(object1 === object3); //false, because they are different objects in memory
+           console.log(object2 === object1); //true, because they are the same object in memory
+
+           const object4 = {
+                message: 'Good job!',
+                price: 799
+           };
+           
+           //const message = object4.message; 
+           //can also destructure
+           const { message, price } = object4;
+           console.log(message, price);
+
+           const object5 = {
+                //message: message
+                message, //shorthand property
+                //method: function function1(){
+                  //  console.log('method');
+                //}
+
+                method(){ //shorthand method
+                    console.log('method');
+                }
+                
+           };
+           console.log(object5);
+           object5.method();
+        </script>
+    </body>
+</html>

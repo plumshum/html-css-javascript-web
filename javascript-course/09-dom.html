@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> DOM </title>
+    </head>
+    <body>
+        <button>
+            hello
+        </button>
+
+        <button class = "js-button"> 
+            Second
+        </button>
+        <script>
+            //lets us get any element from the page and put it inside JS
+            //every html element has a innerHTML property
+            // console.log(document.querySelector('button'));
+            console.log(document.querySelector('button').innerHTML);
+            document.querySelector('button')
+                .innerHTML = 'Changed';
+            
+            //. means looking for a class
+            document.querySelector('.js-button')
+                .innerHTML = 'Second Changed';
+            const buttonElement = document.querySelector('.js-button');
+            console.log(buttonElement);
+
+
+            /*
+            console.log(document.title);
+            document.title = 'Changed';
+            console.log(document.body);
+            
+            //html elements turns into objects in JS
+            console.log(typeof document.body);
+
+            console.log(document.body.innerHTML);
+            document.body.innerHTML = '<button>Good job! </button>';
+
+            */
+
+
+            //DOM is another built-in object in JS
+            //it stands for document object model
+            //document object represents the website
+            
+            //document.body.innerHTML = 'hello';
+            //document.title = 'Good job!';
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Dom Projects</title>
+    </head>
+
+    <body>
+
+        <p> Youtube Subscribe Button</p>
+        <button onclick = "
+            subscribe();
+        " class = "js-subscribe-button"> Subscribe </button>
+
+        <p> Amazon Shipping Calculator </p>
+
+        <!--
+            clicks, keydowns => events
+            onclick, onkeydown => event listeners 
+        -->
+        <input placeholder = "Cost of order" class = "js-cost-input"
+        onkeydown = "
+            handleCostKeyDown(event);
+        "> 
+
+        <button onclick = "
+            calculateTotal();
+        "> Calculate </button>
+
+        <p class = "js-total-cost"></p>
+
+        <script>
+            //window represents the browser
+            //built in object that is automatically added in javascript
+            //window.console.log('window');
+            //window.alert('heyyy');
+
+
+            function handleCostKeyDown(event){
+                //console.log(event.key);
+                if (event.key === 'Enter'){
+                    calculateTotal();
+                }
+            }
+
+            function calculateTotal(){
+                //any value from DOM is a String
+                const inputElement = document.querySelector('.js-cost-input');
+                //get the value in the placeholder
+                let cost = Number(inputElement.value);
+                if(cost < 30){
+                    cost = cost + 10;
+                }
+                document.querySelector('.js-total-cost')
+                .innerHTML = `$${cost}`;
+                
+            }
+            function subscribe(){
+                const buttonElement = document.querySelector('.js-subscribe-button');
+
+                if (buttonElement.innerText === 'Subscribe'){
+                    buttonElement.innerHTML = 'Subscribed';
+                }else{
+                    buttonElement.innerHTML = 'Subscribe';
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Dom Projects</title>
+        <style>
+            .subscribe-button {
+                color: white;
+                background-color: black;
+                border: none;
+                border-radius: 50px;
+                font-weight: bold;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 15px;
+                padding-right: 15px;
+                cursor: pointer;
+                margin-bottom: 30px;
+            }
+
+            .is-subscribed {
+                background-color: rgb(185, 185, 185);
+                color: black;
+            }
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .cost-input {
+                font-size: 15px;
+                padding: 10px;
+            }
+
+            .calculate-button {
+                background-color: green;
+                border:none;
+                color:white;
+                font-size: 15px;
+                padding: 10px 15px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <p> Youtube Subscribe Button</p>
+        <button onclick = "
+            subscribe();
+        " class = "js-subscribe-button subscribe-button"> Subscribe </button>
+
+        <p> Amazon Shipping Calculator </p>
+        <p> Orders over $40 = FREE shipping. </p>
+
+        <!--
+            clicks, keydowns => events
+            onclick, onkeydown => event listeners 
+        -->
+        <input placeholder = "Cost of order" class = "js-cost-input cost-input"
+        onkeydown = "
+            handleCostKeyDown(event);
+        "> 
+
+        <button class = "calculate-button" onclick = "
+            calculateTotal();
+        "> Calculate </button>
+
+        <p class = "js-total-cost"></p>
+
+        <script>
+            //window represents the browser
+            //built in object that is automatically added in javascript
+            //window.console.log('window');
+            //window.alert('heyyy');
+
+
+            function handleCostKeyDown(event){
+                //console.log(event.key);
+                if (event.key === 'Enter'){
+                    calculateTotal();
+                }
+            }
+
+            function calculateTotal(){
+                //any value from DOM is a String
+                const inputElement = document.querySelector('.js-cost-input');
+                //get the value in the placeholder
+                let cost = Number(inputElement.value);
+                if(cost < 30){
+                    cost = cost + 10;
+                }
+                document.querySelector('.js-total-cost')
+                .innerHTML = `$${cost}`;
+                
+            }
+            function subscribe(){
+                const buttonElement = document.querySelector('.js-subscribe-button');
+
+                if (buttonElement.innerText === 'Subscribe'){
+                    buttonElement.innerHTML = 'Subscribed';
+                    //add a class to an element
+                    buttonElement.classList.add('is-subscribed')
+                }else{
+                    buttonElement.innerHTML = 'Subscribe';
+                    //remove a class from an element
+                    buttonElement.classList.remove('is-subscribed')
+                }
+            }
+        </script>
+    </body>
+</html>
